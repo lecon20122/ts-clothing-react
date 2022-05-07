@@ -2,19 +2,19 @@ import React from 'react';
 import './form-input.styles.scss';
 
 export interface IFormInputProps {
-    type: string;
-    name: string;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
-    value?: string;
     label?: string;
+    name: string;
+    type: string;
+    value?: string;
     required?: boolean;
 }
 
-const FormInput: React.FunctionComponent<IFormInputProps> = ({ type, name, value, onChange, label, required }) => {
+const FormInput: React.FunctionComponent<IFormInputProps> = ({ label, onChange, ...otherProps }) => {
     return (
         <div className="group">
-            <input type={type} name={name} value={value} onChange={onChange} required={required} />
-            <label>{label}</label>
+            <input className="form-input" onChange={onChange} {...otherProps} />
+            {label ? <label className={`${otherProps.value?.length ? 'shrink' : ''} form-input-label`}>{label}</label> : null}
         </div>
     );
 };
