@@ -17,6 +17,9 @@ const Header: React.FunctionComponent<IHeaderProps> = () => {
                 <Link className="option" to="/contact">
                     CONTACT
                 </Link>
+                <Link className="option" to="/login">
+                    SIGN IN
+                </Link>
             </div>
         </div>
     );
