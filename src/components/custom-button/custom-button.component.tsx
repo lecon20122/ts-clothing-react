@@ -1,9 +1,10 @@
 import React from 'react';
-import "./custom-button.styles.scss"
+import './custom-button.styles.scss';
 
 interface ICustomButton {
-    type: 'button' | 'submit' | 'reset';
+    type?: 'button' | 'submit' | 'reset';
     className?: string;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 const CustomButton: React.FunctionComponent<ICustomButton> = ({ children, className, ...otherProps }) => {
     return (

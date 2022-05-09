@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import './sign-in.styles.scss';
-
+import { signInWithGoogle } from '../../firebase/firebase.util';
 const SignIn = () => {
     interface ISignIn {
         email: string;
@@ -32,7 +32,12 @@ const SignIn = () => {
             <form onSubmit={handleSubmit}>
                 <FormInput type="email" name="email" label="Email Address" value={signIn.email} onChange={handleChange} required={true} />
                 <FormInput type="password" name="password" label="password" value={signIn.password} onChange={handleChange} required={true} />
-                <CustomButton type="submit">Sign In</CustomButton>
+                <div className="buttons">
+                    <CustomButton type="submit">Sign In</CustomButton>
+                    <CustomButton className="google-sign-in" onClick={signInWithGoogle}>
+                        Google Sign in
+                    </CustomButton>
+                </div>
             </form>
         </div>
     );
